@@ -2,6 +2,7 @@ const webpack = require('webpack');
 const path = require('path');
 const ReactRefreshPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 const baseConfig = require('./webpack.config');
+const fs = require('fs');
 
 module.exports = {
     ...baseConfig,
@@ -30,5 +31,17 @@ module.exports = {
         publicPath: '/',
         watchContentBase: true,
         writeToDisk: true,
+        before: (
+            app,
+            // server,
+            //  compile
+        ) => {
+            app.get('/api/data', (req, res) => {
+                const json = fs.readFileSync(
+                    path.resolve('./sample/sample.json'),
+                );
+                res.json(JSON.parse(json));
+            });
+        },
     },
 };

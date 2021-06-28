@@ -1,0 +1,134 @@
+{
+    "id": 1,
+    "title": "Sample surver",
+    "questions": [
+        {
+            "id": 1,
+            "value": "Do you have any allergies or drug Sensitivities?",
+            "answers": [
+                {
+                    "id": 1,
+                    "isRequired": true,
+                    "descriptions": "",
+                    "valueType": "boolean",
+                    "label": "",
+                    "placeholder": "",
+                    "isMultiple": false,
+                    "controlType": "radio",
+                    "position": 1
+                },
+                {
+                    "id": 2,
+                    "isRequired": true,
+                    "descriptions": "",
+                    "valueType": "text",
+                    "label": "Allergy name",
+                    "placeholder": "Enter name of allergy",
+                    "isMultiple": true,
+                    "controlType": "text",
+                    "position": 2
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "value": "Do you have any health Conditions?",
+            "answers": [
+                {
+                    "id": 1,
+                    "isRequired": true,
+                    "descriptions": "",
+                    "valueType": "boolean",
+                    "label": "",
+                    "placeholder": "",
+                    "isMultiple": false,
+                    "controlType": "radio",
+                    "position": 1
+                },
+                {
+                    "id": 2,
+                    "isRequired": true,
+                    "descriptions": "",
+                    "valueType": "text",
+                    "label": "Health condition",
+                    "placeholder": "Enter health condition",
+                    "isMultiple": true,
+                    "controlType": "text",
+                    "position": 2
+                },
+                {
+                    "id": 3,
+                    "isRequired": true,
+                    "descriptions": "",
+                    "valueType": "date",
+                    "label": "Medicine end date",
+                    "placeholder": "DD/MM/YYYY",
+                    "isMultiple": false,
+                    "controlType": "date",
+                    "position": 2
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "value": "Please choose if your family member have on of the following diseases:",
+            "answers": [
+                {
+                    "id": 1,
+                    "isRequired": false,
+                    "descriptions": "",
+                    "valueType": "boolean",
+                    "label": "Hypertension",
+                    "placeholder": "",
+                    "isMultiple": false,
+                    "controlType": "checkbox",
+                    "position": 1
+                },
+                {
+                    "id": 2,
+                    "isRequired": false,
+                    "descriptions": "",
+                    "valueType": "boolean",
+                    "label": "Diabetes",
+                    "placeholder": "",
+                    "isMultiple": false,
+                    "controlType": "checkbox",
+                    "position": 1
+                },
+                {
+                    "id": 3,
+                    "isRequired": false,
+                    "descriptions": "",
+                    "valueType": "boolean",
+                    "label": "Cancer",
+                    "placeholder": "",
+                    "isMultiple": false,
+                    "controlType": "checkbox",
+                    "position": 1
+                },
+                {
+                    "id": 4,
+                    "isRequired": false,
+                    "descriptions": "",
+                    "valueType": "boolean",
+                    "label": "Tuberculosis",
+                    "placeholder": "",
+                    "isMultiple": false,
+                    "controlType": "checkbox",
+                    "position": 1
+                },
+                {
+                    "id": 5,
+                    "isRequired": false,
+                    "descriptions": "",
+                    "valueType": "text",
+                    "label": "",
+                    "placeholder": "Other diseases",
+                    "isMultiple": false,
+                    "controlType": "text",
+                    "position": 2
+                }
+            ]
+        }
+    ]
+}
