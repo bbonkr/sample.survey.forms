@@ -23,6 +23,11 @@ const About = AsyncComponent(() => import('../About'), {
     fallback: <LoadingComponent />,
 });
 
+const Survey = AsyncComponent(() => import('../SurveyForm'), {
+    resolveComponent: (props) => props.SurveyForm,
+    fallback: <LoadingComponent />,
+});
+
 const PageNotFound = AsyncComponent(() => import('../PageNotFound'), {
     resolveComponent: (props) => props.PageNotFound,
     fallback: <LoadingComponent />,
@@ -41,6 +46,9 @@ export const App = () => {
                     </Route>
                     <Route path="/about" exact>
                         <About />
+                    </Route>
+                    <Route path="/survey" exact>
+                        <Survey />
                     </Route>
                     <Route path="/404" exact>
                         <PageNotFound />
