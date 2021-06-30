@@ -15,7 +15,7 @@
                     "placeholder": "",
                     "isMultiple": false,
                     "controlType": "radio",
-                    "position": 1
+                    "position": "left"
                 },
                 {
                     "id": 2,
@@ -26,7 +26,7 @@
                     "placeholder": "Enter name of allergy",
                     "isMultiple": true,
                     "controlType": "text",
-                    "position": 2
+                    "position": "right"
                 }
             ]
         },
@@ -43,7 +43,7 @@
                     "placeholder": "",
                     "isMultiple": false,
                     "controlType": "radio",
-                    "position": 1
+                    "position": "left"
                 },
                 {
                     "id": 2,
@@ -54,7 +54,7 @@
                     "placeholder": "Enter health condition",
                     "isMultiple": true,
                     "controlType": "text",
-                    "position": 2
+                    "position": "right"
                 },
                 {
                     "id": 3,
@@ -65,7 +65,7 @@
                     "placeholder": "DD/MM/YYYY",
                     "isMultiple": false,
                     "controlType": "date",
-                    "position": 2
+                    "position": "right"
                 }
             ]
         },
@@ -82,7 +82,7 @@
                     "placeholder": "",
                     "isMultiple": false,
                     "controlType": "checkbox",
-                    "position": 1
+                    "position": "left"
                 },
                 {
                     "id": 2,
@@ -93,7 +93,7 @@
                     "placeholder": "",
                     "isMultiple": false,
                     "controlType": "checkbox",
-                    "position": 1
+                    "position": "left"
                 },
                 {
                     "id": 3,
@@ -104,7 +104,7 @@
                     "placeholder": "",
                     "isMultiple": false,
                     "controlType": "checkbox",
-                    "position": 1
+                    "position": "left"
                 },
                 {
                     "id": 4,
@@ -115,7 +115,7 @@
                     "placeholder": "",
                     "isMultiple": false,
                     "controlType": "checkbox",
-                    "position": 1
+                    "position": "left"
                 },
                 {
                     "id": 5,
@@ -126,7 +126,7 @@
                     "placeholder": "Other diseases",
                     "isMultiple": false,
                     "controlType": "text",
-                    "position": 2
+                    "position": "right"
                 }
             ]
         }
