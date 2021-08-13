@@ -1,10 +1,10 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Answer, ControlTypes } from '../../models';
 import { v4 as uuidv4 } from 'uuid';
 
 interface SurveyAnswerProps {
     record: Answer;
-    onChange?: (values: string[]) => void;
+    onChange?: (_id: number, _values: string[]) => void;
 }
 
 export const SurveyAnswer = ({ record, onChange }: SurveyAnswerProps) => {
@@ -18,7 +18,7 @@ export const SurveyAnswer = ({ record, onChange }: SurveyAnswerProps) => {
         (index: number) => (e: React.ChangeEvent<HTMLInputElement>) => {
             let value = e.currentTarget.value;
 
-            console.info('onchange');
+            // console.info('onchange');
 
             if (e.currentTarget.type === 'checkbox') {
                 value = e.currentTarget.checked ? value : '';
@@ -41,7 +41,7 @@ export const SurveyAnswer = ({ record, onChange }: SurveyAnswerProps) => {
     };
 
     const handleClickRemoveAnswer = (index: number) => () => {
-        console.info('handleClickRemoveAnswer', index);
+        // console.info('handleClickRemoveAnswer', index);
         setAnswerValues((prevState) => {
             const temp = [...prevState];
             temp.splice(index, 1);
@@ -55,9 +55,12 @@ export const SurveyAnswer = ({ record, onChange }: SurveyAnswerProps) => {
     };
 
     useEffect(() => {
-        console.info(`${record.id}`, answerValues);
+        // console.info(`${record.id}`, answerValues);
         if (onChange) {
-            onChange(answerValues.filter(Boolean).map((x) => x));
+            onChange(
+                record.id,
+                answerValues.filter(Boolean).map((x) => x),
+            );
         }
     }, [answerValues]);
 

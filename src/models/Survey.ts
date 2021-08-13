@@ -27,3 +27,11 @@ export type Answer = {
     controlType: ControlTypes;
     position: Positions;
 };
+
+export type QuestionAndAnswer = Question & {
+    answers: (Answer & { values?: string[] })[];
+};
+
+export type SurveyResult = Survey & {
+    questions: QuestionAndAnswer[];
+};
