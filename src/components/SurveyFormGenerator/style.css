@@ -1,0 +1,37 @@
+.is-flex {
+    display: flex;
+
+}
+
+.is-flex-direction-column {
+    flex-direction: column;
+}
+
+.is-flex-direction-row {
+    flex-direction: row;
+}
+
+.answers-container>div {
+    background-color: #e1e1e1;
+    padding: 0.6rem;
+    flex: 1;
+}
+
+.answers-container>div:not(:last-child) {
+    margin-right: 1rem;
+}
+
+.answers-container>div .help {
+    font-size: small;
+    color: #afafaf;
+    padding: 0.3rem;
+}
+
+.answer-container:not(:last-child) {
+    margin-bottom: 0.6rem;
+}
+
+.answers{
+    display: flex;
+    flex-direction: column;
+}
