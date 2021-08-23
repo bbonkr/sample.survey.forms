@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from 'react';
-import { Answer, ControlTypes } from '../../models';
+import { ControlTypes, Question } from '../../models';
 import { v4 as uuidv4 } from 'uuid';
 
 interface SurveyAnswerProps {
-    record: Answer;
-    onChange?: (_id: number, _values: string[]) => void;
+    record: Question;
+    onChange?: (_values: string[]) => void;
 }
 
 export const SurveyAnswer = ({ record, onChange }: SurveyAnswerProps) => {
-    const id = `${uuidv4()}-${record.id}`;
-    const inputs: ControlTypes[] = ['text', 'date'];
+    const id = `${uuidv4()}-${record.displayOrder}`;
+    const inputs: ControlTypes[] = ['Textbox', 'Datepicker'];
 
     const [answerValues, setAnswerValues] = useState<string[]>(['']);
     const [controlIds, setControlIds] = useState<string[]>([id]);
@@ -20,7 +20,10 @@ export const SurveyAnswer = ({ record, onChange }: SurveyAnswerProps) => {
 
             // console.info('onchange');
 
-            if (e.currentTarget.type === 'checkbox') {
+            if (
+                e.currentTarget.type === 'checkbox' ||
+                e.currentTarget.type === 'radio'
+            ) {
                 value = e.currentTarget.checked ? value : '';
             }
 
@@ -57,64 +60,96 @@ export const SurveyAnswer = ({ record, onChange }: SurveyAnswerProps) => {
     useEffect(() => {
         // console.info(`${record.id}`, answerValues);
         if (onChange) {
-            onChange(
-                record.id,
-                answerValues.filter(Boolean).map((x) => x),
-            );
+            onChange(answerValues.filter(Boolean).map((x) => x));
         }
     }, [answerValues]);
 
     return (
         <div className="answer-container">
-            <div>
-                {record.controlType !== 'checkbox' && record.label && (
-                    <label htmlFor={id}>{record.label}</label>
-                )}
-            </div>
             <div className={`answers`}>
-                {record.controlType === 'radio' && (
+                {(record.controlType === 'RadioList' ||
+                    record.controlType === 'CheckBoxList') && (
                     <div>
-                        <label>
-                            <input
-                                type={record.controlType}
-                                name={id}
-                                value="yes"
-                                onChange={handleChange(0)}
-                            />{' '}
-                            Yes
-                        </label>
-                        <label>
-                            <input
-                                type={record.controlType}
-                                name={id}
-                                value="no"
-                                onChange={handleChange(0)}
-                            />{' '}
-                            No
-                        </label>
+                        {record.controlSource &&
+                            record.controlSource.split(',').map((radio) => {
+                                return (
+                                    <label key={radio}>
+                                        <input
+                                            type={
+                                                record.controlType ===
+                                                'RadioList'
+                                                    ? 'radio'
+                                                    : 'check'
+                                            }
+                                            name={id}
+                                            value={radio}
+                                            onChange={handleChange(0)}
+                                        />{' '}
+                                        {radio}
+                                    </label>
+                                );
+                            })}
                     </div>
                 )}
-                {record.controlType === 'checkbox' && (
-                    <label>
-                        <input
-                            type={record.controlType}
-                            onChange={handleChange(0)}
-                            value={record.label}
-                        />{' '}
-                        {record.label}
-                    </label>
+
+                {record.controlType === 'CheckBoxList' && (
+                    <div>
+                        {record.controlSource &&
+                            record.controlSource
+                                .split(',')
+                                .map((checkbox, index) => {
+                                    return (
+                                        <label key={checkbox}>
+                                            <input
+                                                type="check"
+                                                value={checkbox}
+                                                onChange={handleChange(index)}
+                                            />{' '}
+                                            {checkbox}
+                                        </label>
+                                    );
+                                })}
+                    </div>
                 )}
-                {inputs.find((x) => x === record.controlType) &&
+
+                {record.controlType === 'Textbox' &&
+                    inputs.find((x) => x === record.controlType) &&
                     controlIds?.map((controlId, index) => {
                         return (
                             <div key={controlId}>
                                 <input
                                     id={controlId}
                                     name={controlId}
-                                    type={record.controlType}
+                                    type="text"
                                     placeholder={record.placeholder}
                                     value={answerValues[index]}
                                     onChange={handleChange(index)}
+                                    required={record.isRequired}
+                                />
+                                {index > 0 && (
+                                    <button
+                                        onClick={handleClickRemoveAnswer(index)}
+                                    >
+                                        Remove
+                                    </button>
+                                )}
+                            </div>
+                        );
+                    })}
+
+                {record.controlType === 'Datepicker' &&
+                    inputs.find((x) => x === record.controlType) &&
+                    controlIds?.map((controlId, index) => {
+                        return (
+                            <div key={controlId}>
+                                <input
+                                    id={controlId}
+                                    name={controlId}
+                                    type="date"
+                                    placeholder={record.placeholder}
+                                    value={answerValues[index]}
+                                    onChange={handleChange(index)}
+                                    required={record.isRequired}
                                 />
                                 {index > 0 && (
                                     <button
