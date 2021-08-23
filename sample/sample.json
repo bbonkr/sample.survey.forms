@@ -1,134 +1,88 @@
 {
-    "id": 1,
+    "id": "65f84559-055e-4f86-9419-200990d32c60",
     "title": "Sample survey",
     "questions": [
         {
-            "id": 1,
-            "value": "Do you have any allergies or drug Sensitivities?",
-            "answers": [
-                {
-                    "id": 1,
-                    "isRequired": true,
-                    "descriptions": "",
-                    "valueType": "boolean",
-                    "label": "",
-                    "placeholder": "",
-                    "isMultiple": false,
-                    "controlType": "radio",
-                    "position": "left"
-                },
-                {
-                    "id": 2,
-                    "isRequired": true,
-                    "descriptions": "",
-                    "valueType": "text",
-                    "label": "Allergy name",
-                    "placeholder": "Enter name of allergy",
-                    "isMultiple": true,
-                    "controlType": "text",
-                    "position": "right"
-                }
-            ]
+            "question": "First Name",
+            "placeholder": "First Name",
+            "controlType": "Textbox",
+            "controlSource": null,
+            "isRequired": true,
+            "displayZone": "left",
+            "displayOrder": 0
         },
         {
-            "id": 3,
-            "value": "Do you have any health Conditions?",
-            "answers": [
-                {
-                    "id": 1,
-                    "isRequired": true,
-                    "descriptions": "",
-                    "valueType": "boolean",
-                    "label": "",
-                    "placeholder": "",
-                    "isMultiple": false,
-                    "controlType": "radio",
-                    "position": "left"
-                },
-                {
-                    "id": 2,
-                    "isRequired": true,
-                    "descriptions": "",
-                    "valueType": "text",
-                    "label": "Health condition",
-                    "placeholder": "Enter health condition",
-                    "isMultiple": true,
-                    "controlType": "text",
-                    "position": "right"
-                },
-                {
-                    "id": 3,
-                    "isRequired": true,
-                    "descriptions": "",
-                    "valueType": "date",
-                    "label": "Medicine end date",
-                    "placeholder": "DD/MM/YYYY",
-                    "isMultiple": false,
-                    "controlType": "date",
-                    "position": "right"
-                }
-            ]
+            "question": "Last Name",
+            "placeholder": "Last Name",
+            "controlType": "Textbox",
+            "controlSource": null,
+            "isRequired": true,
+            "displayZone": "right",
+            "displayOrder": 1
         },
         {
-            "id": 4,
-            "value": "Please choose if your family member have on of the following diseases:",
-            "answers": [
-                {
-                    "id": 1,
-                    "isRequired": false,
-                    "descriptions": "",
-                    "valueType": "boolean",
-                    "label": "Hypertension",
-                    "placeholder": "",
-                    "isMultiple": false,
-                    "controlType": "checkbox",
-                    "position": "left"
-                },
-                {
-                    "id": 2,
-                    "isRequired": false,
-                    "descriptions": "",
-                    "valueType": "boolean",
-                    "label": "Diabetes",
-                    "placeholder": "",
-                    "isMultiple": false,
-                    "controlType": "checkbox",
-                    "position": "left"
-                },
-                {
-                    "id": 3,
-                    "isRequired": false,
-                    "descriptions": "",
-                    "valueType": "boolean",
-                    "label": "Cancer",
-                    "placeholder": "",
-                    "isMultiple": false,
-                    "controlType": "checkbox",
-                    "position": "left"
-                },
-                {
-                    "id": 4,
-                    "isRequired": false,
-                    "descriptions": "",
-                    "valueType": "boolean",
-                    "label": "Tuberculosis",
-                    "placeholder": "",
-                    "isMultiple": false,
-                    "controlType": "checkbox",
-                    "position": "left"
-                },
-                {
-                    "id": 5,
-                    "isRequired": false,
-                    "descriptions": "",
-                    "valueType": "text",
-                    "label": "",
-                    "placeholder": "Other diseases",
-                    "isMultiple": false,
-                    "controlType": "text",
-                    "position": "right"
-                }
-            ]
+            "question": "Birthday",
+            "placeholder": "DD/MM/YYYY",
+            "controlType": "Datepicker",
+            "controlSource": null,
+            "isRequired": true,
+            "displayZone": "left",
+            "displayOrder": 2
+        },
+        {
+            "question": "Gender",
+            "placeholder": null,
+            "controlType": "RadioList",
+            "controlSource": "Male,Female,Non-Binary",
+            "isRequired": true,
+            "displayZone": "right",
+            "displayOrder": 3
+        },
+        {
+            "question": "Please write your place of current residence",
+            "placeholder": "Country",
+            "controlType": "Textbox",
+            "controlSource": null,
+            "isRequired": true,
+            "displayZone": "left",
+            "displayOrder": 4
+        },
+        {
+            "question": "Insurance company name",
+            "placeholder": "Enter Name",
+            "controlType": "Textbox",
+            "controlSource": null,
+            "isRequired": false,
+            "displayZone": "right",
+            "displayOrder": 5
+        },
+        {
+            "question": "Phone number",
+            "placeholder": "Phone",
+            "controlType": "Textbox",
+            "controlSource": null,
+            "isRequired": true,
+            "displayZone": "left",
+            "isMultiple": true,
+            "displayOrder": 6
+        },
+        {
+            "question": "Height",
+            "placeholder": "cm",
+            "controlType": "Textbox",
+            "controlSource": null,
+            "isRequired": false,
+            "displayZone": "left",
+            "displayOrder": 7
+        },
+        {
+            "question": "Weight",
+            "placeholder": "Kg",
+            "controlType": "Textbox",
+            "controlSource": null,
+            "isRequired": false,
+            "displayZone": "right",
+            "displayOrder": 8
         }
     ]
 }

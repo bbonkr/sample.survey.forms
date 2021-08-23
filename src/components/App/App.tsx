@@ -28,14 +28,6 @@ const Survey = AsyncComponent(() => import('../SurveyForm'), {
     fallback: <LoadingComponent />,
 });
 
-const SurveyFormGenerator = AsyncComponent(
-    () => import('../SurveyFormGenerator'),
-    {
-        resolveComponent: (props) => props.SurveyGeneratorForm,
-        fallback: <LoadingComponent />,
-    },
-);
-
 const PageNotFound = AsyncComponent(() => import('../PageNotFound'), {
     resolveComponent: (props) => props.PageNotFound,
     fallback: <LoadingComponent />,
@@ -57,9 +49,6 @@ export const App = () => {
                     </Route>
                     <Route path="/survey" exact>
                         <Survey />
-                    </Route>
-                    <Route path="/generator" exact>
-                        <SurveyFormGenerator />
                     </Route>
                     <Route path="/404" exact>
                         <PageNotFound />

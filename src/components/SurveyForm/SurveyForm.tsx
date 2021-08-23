@@ -3,6 +3,8 @@ import Axios from 'axios';
 import { Survey } from '../../models';
 import { SurveyFormItem } from './SurveyFormItem';
 
+import './style.css';
+
 export const SurveyForm = () => {
     const [record, setRecord] = useState<Survey>();
 

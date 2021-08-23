@@ -31,7 +31,19 @@
     margin-bottom: 0.6rem;
 }
 
-.answers{
+.answers {
     display: flex;
     flex-direction: column;
+}
+
+.answer-container input:invalid:required {
+    border: 2px solid red;
+}
+
+.answer-container input:required {
+    border: 2px solid orange;
+}
+
+.answer-container input:valid:required {
+    border: 2px solid greenyellow;
 }

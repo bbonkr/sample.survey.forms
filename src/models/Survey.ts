@@ -1,37 +1,26 @@
 export type Survey = {
-    id: number;
+    id: string;
     title: string;
     questions: Question[];
 };
 
 export type Question = {
-    id: number;
-    value: string;
-    answers: Answer[];
+    question: string;
+    placeholder: string;
+    controlType: ControlTypes;
+    controlSource?: string;
+    isRequired: boolean;
+    displayZone: Positions;
+    displayOrder: number;
+    // TODO multiple textbox answers
+    isMultiple?: boolean;
+    answers: string[];
 };
 
-export type ValueTypes = 'boolean' | 'text' | 'date';
-
-export type ControlTypes = 'radio' | 'text' | 'date' | 'checkbox';
+export type ControlTypes =
+    | 'Textbox'
+    | 'Datepicker'
+    | 'RadioList'
+    | 'CheckBoxList';
 
 export type Positions = 'left' | 'right';
-
-export type Answer = {
-    id: number;
-    isRequired: boolean;
-    descriptions: string;
-    valueType: ValueTypes;
-    label: string;
-    placeholder: string;
-    isMultiple: boolean;
-    controlType: ControlTypes;
-    position: Positions;
-};
-
-export type QuestionAndAnswer = Question & {
-    answers: (Answer & { values?: string[] })[];
-};
-
-export type SurveyResult = Survey & {
-    questions: QuestionAndAnswer[];
-};

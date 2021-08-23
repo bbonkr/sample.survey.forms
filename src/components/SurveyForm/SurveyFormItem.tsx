@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import { QuestionAndAnswer, Survey, SurveyResult } from '../../models';
+import { Survey, Question } from '../../models';
 import { SurveyQuestion } from './SurveyQuestion';
 
 interface SurveyFormItemProps {
@@ -7,7 +7,7 @@ interface SurveyFormItemProps {
 }
 
 export const SurveyFormItem = ({ record }: SurveyFormItemProps) => {
-    const [surveyResult, setSurveyResult] = useState<SurveyResult>(() => ({
+    const [surveyResult, setSurveyResult] = useState<Survey>(() => ({
         ...record,
     }));
 
@@ -15,29 +15,32 @@ export const SurveyFormItem = ({ record }: SurveyFormItemProps) => {
         console.info('submit');
     };
 
-    const handleChange = useCallback((id: number, value: QuestionAndAnswer) => {
-        setSurveyResult((prevState) => {
-            const questionIndex = prevState.questions.findIndex(
-                (x) => x.id === id,
-            );
-            if (questionIndex >= 0) {
-                const previousQuestion = prevState.questions.find(
-                    (x) => x.id === id,
+    const handleChange = useCallback(
+        (displayOrder: number, value: Question) => {
+            setSurveyResult((prevState) => {
+                const questionIndex = prevState.questions.findIndex(
+                    (x) => x.displayOrder === displayOrder,
                 );
-                if (previousQuestion) {
-                    prevState.questions.splice(questionIndex, 1, {
-                        ...previousQuestion,
-                        ...value,
-                    });
+                if (questionIndex >= 0) {
+                    const previousQuestion = prevState.questions.find(
+                        (x) => x.displayOrder === displayOrder,
+                    );
+                    if (previousQuestion) {
+                        prevState.questions.splice(questionIndex, 1, {
+                            ...previousQuestion,
+                            ...value,
+                        });
+                    }
                 }
-            }
 
-            return {
-                ...prevState,
-                questions: [...prevState.questions],
-            };
-        });
-    }, []);
+                return {
+                    ...prevState,
+                    questions: [...prevState.questions],
+                };
+            });
+        },
+        [],
+    );
 
     useEffect(() => {
         console.info('SurveyFormItem : surveyResult => ', surveyResult);
@@ -47,13 +50,15 @@ export const SurveyFormItem = ({ record }: SurveyFormItemProps) => {
         <div>
             <h2>{record.title}</h2>
 
-            {record.questions.map((question) => (
-                <SurveyQuestion
-                    key={question.id}
-                    record={question}
-                    onChange={handleChange}
-                />
-            ))}
+            {record.questions
+                .sort((a, b) => (a.displayOrder > b.displayOrder ? 1 : -1))
+                .map((question) => (
+                    <SurveyQuestion
+                        key={question.displayOrder}
+                        record={question}
+                        onChange={handleChange}
+                    />
+                ))}
 
             <div>
                 <button onClick={handleClickSubmit}>Submit</button>
