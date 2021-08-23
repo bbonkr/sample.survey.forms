@@ -46,7 +46,7 @@ module.exports = {
     output: {
         filename: '[name].js',
         path: path.join(path.resolve(__dirname, '..'), 'out', 'dist'),
-        publicPath: 'dist/',
+        publicPath: '/sample.survey.forms/dist/',
         clean: true,
     },
 };

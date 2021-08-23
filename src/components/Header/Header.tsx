@@ -13,9 +13,6 @@ export const Header = () => {
                     <Link to="/survey">Survey</Link>
                 </li>
                 <li>
-                    <Link to="/generator">Generator</Link>
-                </li>
-                <li>
                     <Link to="/about">About</Link>
                 </li>
                 <li>

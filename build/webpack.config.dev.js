@@ -18,6 +18,7 @@ module.exports = {
     ],
     output: {
         ...baseConfig.output,
+        publicPath: '/dist/',
         clean: false,
     },
     devServer: {

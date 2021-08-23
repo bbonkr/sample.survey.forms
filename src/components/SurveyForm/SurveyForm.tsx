@@ -9,7 +9,9 @@ export const SurveyForm = () => {
     const [record, setRecord] = useState<Survey>();
 
     useEffect(() => {
-        Axios.get<Survey>('/api/data')
+        Axios.get<Survey>(
+            'https://raw.githubusercontent.com/bbonkr/sample.survey.forms/main/sample/sample.json',
+        )
             .then((res) => {
                 setRecord((_) => res.data);
             })
